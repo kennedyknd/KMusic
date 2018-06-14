@@ -47,6 +47,17 @@
                 <a href="../gravadora/add.php#gravadora" class="w3-bar-item w3-button">Gravadora</a>
             </div>
         </div>
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">VISUALIZAR <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="../musica/index.php#musica" class="w3-bar-item w3-button">Música</a>
+                <a href="../artista/index.php#artista" class="w3-bar-item w3-button">Artista</a>
+                <a href="../banda/index.php#banda" class="w3-bar-item w3-button">Banda</a>
+                <a href="../album/index.php#album" class="w3-bar-item w3-button">Album</a>
+                <a href="../genero/index.php#genero" class="w3-bar-item w3-button">Gênero</a>
+                <a href="../gravadora/index.php#gravadora" class="w3-bar-item w3-button">Gravadora</a>
+            </div>
+        </div>
     </div>
 </div>
 
