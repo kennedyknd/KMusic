@@ -7,7 +7,7 @@ $gravadoras = $gravadora->recuperarDados();
 include_once '../cabecalho.php';
 ?>
 
-    <h1 class="text-center">Gravadoras</h1>
+    <h1 id="gravadora" class="text-center">Gravadoras</h1>
     <br>
 <div class="container">
     <header>
@@ -34,10 +34,9 @@ include_once '../cabecalho.php';
         <?php foreach ($gravadoras as $gravadora){
             echo "
             <tr>
-                <td>
+                <td style='width: 130px'>
                     <a href='add.php?id_gravadora={$gravadora['id_gravadora']}' class=\"btn btn-sm btn-warning\">Editar</a>
                     <a href='processamento.php?acao=excluir&id_gravadora={$gravadora['id_gravadora']}' class=\"btn btn-sm btn-danger\">Excluir</a>
-                    <a href='view.php?id_gravadora={$gravadora['id_gravadora']}' class=\"btn btn-sm btn-info\">Visualizar</a>
                 </td>
                 <td>{$gravadora['id_gravadora']}</td>
                 <td>{$gravadora['razaoSocial']}</td>

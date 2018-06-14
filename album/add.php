@@ -22,11 +22,6 @@ if(!empty($_GET['id_album'])){
     </head>
 <div class="container">
 
-    <?php
-    $teste = $artista->getIdArtista();
-    echo "ID artista é $teste";
-    ?>
-
     <h2 id="album">Novo Album</h2>
 
     <form class="form-horizontal" method="post" action="processamento.php?acao=salvar">
@@ -42,7 +37,7 @@ if(!empty($_GET['id_album'])){
         </div>
 
         <div class="form-group col-md-12">
-            <label for="lancamento">Descrição</label>
+            <label for="lancamento">Lancamento</label>
             <input type="date" class="form-control" value="<?php echo $album->getLancamento();?>" id="lancamento" name="lancamento" required>
         </div>
 

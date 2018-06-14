@@ -7,7 +7,7 @@ $bandas = $banda->recuperarDados();
 include_once '../cabecalho.php';
 ?>
 
-    <h1 class="text-center">Album</h1>
+    <h1 id="banda" class="text-center">Banda</h1>
     <br>
 <div class="container">
     <header>
@@ -35,7 +35,7 @@ include_once '../cabecalho.php';
         <?php foreach ($bandas as $banda){
             echo "
             <tr>
-                <td>
+                <td style='width: 210px'>
                     <a href='add.php?id_banda={$banda['id_banda']}' class=\"btn btn-sm btn-warning\">Editar</a>
                     <a href='processamento.php?acao=excluir&id_banda={$banda['id_banda']}' class=\"btn btn-sm btn-danger\">Excluir</a>
                     <a href='view.php?id_banda={$banda['id_banda']}' class=\"btn btn-sm btn-info\">Visualizar</a>

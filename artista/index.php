@@ -6,8 +6,8 @@ $artistas = $artista->recuperarDados();
 
 include_once '../cabecalho.php';
 ?>
-
-    <h1 class="text-center">Artistas</h1>
+<div class="container">
+    <h1 id="artista" class="text-center">Artistas</h1>
     <br>
     <header>
         <div class="row">
@@ -34,7 +34,7 @@ include_once '../cabecalho.php';
         <?php foreach ($artistas as $artista){
             echo "
             <tr>
-                <td>
+                <td style='width: 210px'>
                     <a href='add.php?id_artista={$artista['id_artista']}' class=\"btn btn-sm btn-warning\">Editar</a>
                     <a href='processamento.php?acao=excluir&id_artista={$artista['id_artista']}' class=\"btn btn-sm btn-danger\">Excluir</a>
                     <a href='view.php?id_artista={$artista['id_artista']}' class=\"btn btn-sm btn-info\">Visualizar</a>
@@ -50,6 +50,6 @@ include_once '../cabecalho.php';
         } ?>
 
     </table>
-
+</div>
 <?php
 include_once '../rodape.php';

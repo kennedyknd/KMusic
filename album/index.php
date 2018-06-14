@@ -7,7 +7,7 @@ $albums = $album->recuperarDados();
 include_once '../cabecalho.php';
 ?>
 
-    <h1 class="text-center">Album</h1>
+    <h1 id="album" class="text-center">Album</h1>
     <br>
 <div class="container">
     <header>
@@ -33,10 +33,9 @@ include_once '../cabecalho.php';
         <?php foreach ($albums as $album){
             echo "
             <tr>
-                <td>
+                <td style='width: 130px'>
                     <a href='add.php?id_album={$album['id_album']}' class=\"btn btn-sm btn-warning\">Editar</a>
                     <a href='processamento.php?acao=excluir&id_album={$album['id_album']}' class=\"btn btn-sm btn-danger\">Excluir</a>
-                    <a href='view.php?id_album={$album['id_album']}' class=\"btn btn-sm btn-info\">Visualizar</a>
                 </td>
                 <td>{$album['id_album']}</td>
                 <td>{$album['nome']}</td>

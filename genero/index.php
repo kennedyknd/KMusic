@@ -7,7 +7,7 @@ $generos = $genero->recuperarDados();
 include_once '../cabecalho.php';
 ?>
 
-    <h1 class="text-center">Gênero</h1>
+    <h1 id="genero" class="text-center">Gênero</h1>
     <br>
 <div class="container">
     <header>
@@ -31,10 +31,9 @@ include_once '../cabecalho.php';
         <?php foreach ($generos as $genero){
             echo "
             <tr>
-                <td>
+                <td style='width: 130px'>
                     <a href='add.php?id_genero={$genero['id_genero']}' class=\"btn btn-sm btn-warning\">Editar</a>
                     <a href='processamento.php?acao=excluir&id_genero={$genero['id_genero']}' class=\"btn btn-sm btn-danger\">Excluir</a>
-                    <a href='view.php?id_genero={$genero['id_genero']}' class=\"btn btn-sm btn-info\">Visualizar</a>
                 </td>
                 <td>{$genero['id_genero']}</td>
                 <td>{$genero['nome']}</td>
