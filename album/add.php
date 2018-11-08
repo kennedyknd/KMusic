@@ -19,10 +19,35 @@ if(!empty($_GET['id_album'])){
 
     <head>
         <title>Novo Album</title>
+
+        <script>
+            $(function(){
+
+                $('#nome').change(function() {
+                    $nome = $('#nome').val();
+                    $.ajax({
+                        url: 'processamento.php?acao=verificar_nome&nome='+$nome,
+                        success: function (dados) {
+                            if (dados){
+                                // alert(dados);
+                                $('#mensagemNome').html(dados);
+                                $('#nome').val(' ');
+                            }
+                        }
+                    });
+                })
+
+            })
+        </script>
+        
     </head>
 <div class="container">
 
     <h2 id="album">Novo Album</h2>
+
+    <div id="mensagemNome">
+
+    </div>
 
     <form class="form-horizontal" method="post" action="processamento.php?acao=salvar">
 

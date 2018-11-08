@@ -22,11 +22,54 @@ if(!empty($_GET['id_gravadora'])){
                 $('#cnpj').mask('99.999/9999-99');
             })
         </script>
+
+        <script>
+            $(function(){
+
+                $('#razaoSocial').change(function() {
+                    $razaoSocial = $('#razaoSocial').val();
+                    $.ajax({
+                        url: 'processamento.php?acao=verificar_razaoSocial&razaoSocial='+$razaoSocial,
+                        success: function (dados) {
+                            if (dados){
+                                // alert(dados);
+                                $('#mensagemRazaoSocial').html(dados);
+                                $('#razaoSocial').val(' ');
+                            }
+                        }
+                    });
+                })
+
+                $('#cnpj').change(function() {
+                    $cnpj = $('#cnpj').val();
+                    $.ajax({
+                        url: 'processamento.php?acao=verificar_cnpj&cnpj='+$cnpj,
+                        success: function (dados) {
+                            if (dados){
+                                // alert(dados);
+                                $('#mensagemCnpj').html(dados);
+                                $('#cnpj').val(' ');
+                            }
+                        }
+                    });
+                })
+
+            })
+        </script>
+
     </head>
 
 <div class="container">
 
     <h2 id="gravadora">Nova Gravadora</h2>
+
+    <div id="mensagemRazaoSocial">
+
+    </div>
+
+    <div id="mensagemCnpj">
+
+    </div>
 
     <form class="form-horizontal" method="post" action="processamento.php?acao=salvar">
 

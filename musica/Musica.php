@@ -190,4 +190,16 @@ class Musica
 
         return $conexao->executar($sql);
     }
+
+    public function existeNome($nome)
+    {
+        $conexao = new Conexao();
+
+//        $sql = "SELECT COUNT(*) qtd FROM cliente WHERE nome ='$nome';";
+        $sql = "SELECT nome, COUNT(*) qtd FROM musica WHERE nome ='$nome'";
+        $dados = $conexao->recuperarDados($sql);
+
+        return $dados;
+    }
+
 }

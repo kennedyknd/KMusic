@@ -170,4 +170,27 @@ class Gravadora
 
         return $conexao->executar($sql);
     }
+
+    public function existeRazaoSocial($razaoSocial)
+    {
+        $conexao = new Conexao();
+
+//        $sql = "SELECT COUNT(*) qtd FROM cliente WHERE razaoSocial ='$razaoSocial';";
+        $sql = "SELECT razaoSocial, COUNT(*) qtd FROM gravadora WHERE razaoSocial ='$razaoSocial'";
+        $dados = $conexao->recuperarDados($sql);
+
+        return $dados;
+    }
+
+    public function existeCnpj($cnpj)
+    {
+        $conexao = new Conexao();
+
+//        $sql = "SELECT COUNT(*) qtd FROM cliente WHERE cnpj ='$cnpj';";
+        $sql = "SELECT cnpj, COUNT(*) qtd FROM gravadora WHERE cnpj ='$cnpj'";
+        $dados = $conexao->recuperarDados($sql);
+
+        return $dados;
+    }
+
 }

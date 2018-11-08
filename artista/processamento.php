@@ -14,6 +14,17 @@ switch ($_GET['acao']){
     case 'excluir':
         $artista->excluir($_GET['id_artista']);
         break;
+
+    case 'verificar_nome':
+        $existe = $artista->existeNome($_GET['nome']);
+
+        if (!empty($existe)) {
+            if ($existe[0]['qtd'] > 0) {
+                echo "<div class='alert'><h3>Já existe {$existe[0]['qtd']} artista com o nome {$_GET['nome']}</h3></div>";
+            }
+        }
+        die;
+        break;
 }
 
 // Redireciona para a página index
