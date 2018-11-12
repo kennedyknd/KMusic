@@ -63,7 +63,7 @@ if(!empty($_GET['id_artista'])){
 
             </div>
 
-    <form class="form-horizontal" method="post" action="processamento.php?acao=salvar">
+    <form enctype="multipart/form-data" class="form-horizontal" method="post" action="processamento.php?acao=salvar">
 
         <input type="hidden" name="id_artista" class="form-control" value="<?php echo $artista->getIdArtista();?>">
 
@@ -144,6 +144,17 @@ if(!empty($_GET['id_artista'])){
                 </select>
 
             </div>
+
+        <br/>
+        <div class="row form-group">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <label>Inserir Imagem</label>
+                    <input type="file" class="form-text" id="foto" name="foto" value="<?php echo $artista->getFoto(); ?>">
+                </div>
+            </div>
+
+        </div>
 
             <div class="form-group">
                 <div class="col-sm-12">

@@ -29,6 +29,7 @@ include_once '../cabecalho.php';
             <td>Cidade</td>
             <td>Pais</td>
             <td>Instrumento</td>
+            <td>Foto</td>
         </tr>
 
         <?php foreach ($artistas as $artista){
@@ -45,6 +46,7 @@ include_once '../cabecalho.php';
                 <td>{$artista['cidade']}</td>
                 <td>{$artista['pais']}</td>
                 <td>{$artista['instrumento']}</td>
+                <td>{$artista['foto']}</td>
             </tr>
         ";
         } ?>

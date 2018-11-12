@@ -209,6 +209,19 @@ class Artista
         $this->id_banda = $id_banda;
     }
 
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
+     * @param mixed $foto
+     */
+    public function setFoto($foto)
+    {
+        $this->foto = $foto;
+    }
+
     public function recuperarDados()
     {
         $conexao = new Conexao();
@@ -253,11 +266,23 @@ class Artista
         $id_genero = $dados['id_genero'];
         $id_gravadora = $dados['id_gravadora'];
         $id_banda = $dados['id_banda'];
+        $foto = $_FILES['foto']['name'];
+        $this->uploadFoto();
 
-        $sql = "INSERT INTO artista (nome, datanasci, cidade, pais, ocupacao, instrumento, paginaWeb, afiliacao, id_genero, id_gravadora, id_banda)";
-        $sql .= "VALUES ('$nome','$datanasci','$cidade','$pais','$ocupacao','$instrumento','$paginaWeb','$afiliacao','$id_genero','$id_gravadora','$id_banda')";
+        $sql = "INSERT INTO artista (nome, datanasci, cidade, pais, ocupacao, instrumento, paginaWeb, afiliacao, id_genero, id_gravadora, id_banda, foto)";
+        $sql .= "VALUES ('$nome','$datanasci','$cidade','$pais','$ocupacao','$instrumento','$paginaWeb','$afiliacao','$id_genero','$id_gravadora','$id_banda','$foto')";
 
         return $conexao->executar($sql);
+    }
+
+    public function uploadFoto(){
+
+        if ($_FILES['foto']['error'] == UPLOAD_ERR_OK)
+        {
+            $origem = $_FILES['foto']['tmp_name'];
+            $destino = '../upload/produto' . $_FILES['foto']['name'];
+            move_uploaded_file($origem, $destino);
+        }
     }
 
     public function alterar($dados)

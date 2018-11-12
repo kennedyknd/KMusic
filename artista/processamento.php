@@ -5,6 +5,11 @@ $artista = new Artista();
 
 switch ($_GET['acao']){
     case 'salvar':
+
+        $origem = $_FILES['foto']['tmp_name'];
+        $destino = '../upload/cliente/' . $_FILES['foto']['name'];
+        move_uploaded_file($origem, $destino);
+
         if(!empty($_POST['id_artista'])) {
             $artista->alterar($_POST);
         } else {
