@@ -302,8 +302,10 @@ class Artista
         $id_genero = $dados['id_genero'];
         $id_gravadora = $dados['id_gravadora'];
         $id_banda = $dados['id_banda'];
+        $foto = $_FILES['foto']['name'];
+        $this->uploadFoto();
 
-        $sql = "UPDATE artista SET nome = '$nome', datanasci = '$datanasci', cidade = '$cidade', pais = '$pais', ocupacao = '$ocupacao', instrumento = '$instrumento', paginaWeb = '$paginaWeb', afiliacao = '$afiliacao', id_genero = '$id_genero', id_gravadora= '$id_gravadora', id_banda= '$id_banda' WHERE id_artista = $id_artista";
+        $sql = "UPDATE artista SET nome = '$nome', datanasci = '$datanasci', cidade = '$cidade', pais = '$pais', ocupacao = '$ocupacao', instrumento = '$instrumento', paginaWeb = '$paginaWeb', afiliacao = '$afiliacao', id_genero = '$id_genero', id_gravadora= '$id_gravadora', id_banda= '$id_banda', foto= '$foto' WHERE id_artista = $id_artista";
 
         return $conexao->executar($sql);
     }

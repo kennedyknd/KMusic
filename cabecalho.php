@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+include_once '../usuario/Usuario.php';
+
+$possuiAcesso = (new Usuario())->possuiAcesso();
+
+if (!$possuiAcesso) {
+    header('location: ../usuario/login.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +39,8 @@
         .mySlides {display: none}
     </style>
 </head>
+
+<?php if (!empty($_SESSION['usuario'])) { ?>
 
 <body>
 
@@ -57,6 +72,24 @@
                 <a href="../genero/index.php#genero" class="w3-bar-item w3-button">Gênero</a>
                 <a href="../gravadora/index.php#gravadora" class="w3-bar-item w3-button">Gravadora</a>
             </div>
+        </div>
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">ADMINISTRADOR <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="../pagina/index.php" class="w3-bar-item w3-button">Página</a>
+                <a href="../perfil/index.php" class="w3-bar-item w3-button">Perfil</a>
+                <a href="../usuario/index.php" class="w3-bar-item w3-button">Usuário</a>
+            </div>
+        </div>
+
+        <div>
+            <li>
+                <ul class="nav navbar-nav navbar-right user-nav">
+                    <li class="user-name"><span><?= $_SESSION['usuario']['nome']; ?></span></li>
+                    <li><a title="Sair" href="../usuario/processamento.php?acao=deslogar" class="opener-right-menu"><span class="fa fa-sign-out"></span></a></li>
+                </ul>
+            </li>
         </div>
     </div>
 </div>
@@ -93,3 +126,4 @@
             <p><b>Fique por dentro das novidades da música.</b></p>
         </div>
     </div>
+<?php } ?>
